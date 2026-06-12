@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<base target="_top">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+<link
+rel="icon"
+type="image/png"
+href="https://drive.google.com/thumbnail?id=1ZETvlXkg2m1vR8OoMBRoJa8ljFu4iTNO&sz=w1000"
+/>
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+
+font-family:Inter,Arial,sans-serif;
+
+background:
+
+radial-gradient(
+circle at top left,
+rgba(79,124,255,.08),
+transparent 30%
+),
+
+radial-gradient(
+circle at bottom right,
+rgba(65,201,107,.05),
+transparent 30%
+),
+
+linear-gradient(
+135deg,
+#eef4ff,
+#f8f9fd,
+#f1f5ff
+);
+
+margin:0;
+
+padding:30px;
+
+}
+
+.container{
+
+max-width:700px;
+
+width:100%;
+
+margin:auto;
+
+background:
+rgba(255,255,255,.95);
+
+backdrop-filter:blur(10px);
+
+padding:20px;
+
+border-radius:24px;
+
+box-sizing:border-box;
+
+border:1px solid rgba(255,255,255,.5);
+
+box-shadow:
+0 20px 50px rgba(79,124,255,.10),
+0 10px 25px rgba(0,0,0,.05);
+
+}
+
+select,
+input,
+button{
+  width:100%;
+  max-width:100%;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+}
+
+
+h1{
+
+margin-top:0;
+margin-bottom:10px;
+
+font-size:30px;
+
+}
+
+.subtitle{
+
+color:#777;
+margin-bottom:30px;
+
+}
+
+label{
+
+display:block;
+
+font-weight:600;
+
+margin-bottom:8px;
+
+}
+
+select,input{
+
+width:100%;
+
+padding:14px;
+
+border-radius:14px;
+
+border:1px solid #ddd;
+
+font-size:15px;
+
+box-sizing:border-box;
+
+}
+
+select:focus,
+input:focus{
+
+outline:none;
+
+border-color:#4F7CFF;
+
+}
+
+button{
+
+margin-top:20px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:16px;
+
+background:
+linear-gradient(
+135deg,
+#4F7CFF,
+#6A8CFF
+);
+
+color:white;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+.card{
+
+margin-top:25px;
+
+padding:20px;
+
+background:#fafbff;
+
+border-radius:18px;
+
+}
+
+.statBox{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:12px;
+
+margin-top:20px;
+
+}
+
+.stat{
+
+background:white;
+
+padding:18px;
+
+border-radius:16px;
+
+text-align:center;
+
+}
+
+.statNumber{
+
+font-size:24px;
+
+font-weight:700;
+
+margin-top:8px;
+
+}
+
+.progress{
+
+width:100%;
+
+height:14px;
+
+background:#e9edf7;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-top:12px;
+
+}
+
+.bar{
+
+height:100%;
+
+border-radius:20px;
+
+transition:width 1.2s ease;
+
+}
+
+.status{
+
+text-align:center;
+
+font-size:22px;
+
+font-weight:700;
+
+margin-top:20px;
+
+}
+
+.history{
+
+margin-top:25px;
+
+}
+
+.item{
+
+background:white;
+
+padding:15px;
+
+border-radius:14px;
+
+margin-bottom:12px;
+
+}
+
+.ok{
+
+border-left:6px solid #41c96b;
+
+}
+
+.no{
+
+border-left:6px solid #ff6868;
+
+}
+
+.loading{
+
+text-align:center;
+
+padding:30px;
+
+color:#777;
+
+}
+
+.spinner{
+
+width:40px;
+height:40px;
+
+border:4px solid #e9edf7;
+
+border-top:4px solid #4F7CFF;
+
+border-radius:50%;
+
+margin:0 auto 15px auto;
+
+animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+.fadeIn{
+
+animation:fade .5s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(10px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.headerWrap{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:14px;
+
+margin-bottom:8px;
+
+}
+
+.logo{
+
+width:48px;
+height:48px;
+
+object-fit:contain;
+
+border-radius:0;
+
+}
+
+.subLab{
+
+font-size:14px;
+
+color:#777;
+
+margin-top:-6px;
+
+}
+
+.badge{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:8px 14px;
+
+border-radius:999px;
+
+font-weight:700;
+
+font-size:14px;
+
+background:#edf2ff;
+
+color:#4F7CFF;
+
+}
+
+.printBtn{
+
+background:#222;
+
+margin-top:15px;
+
+}
+
+.footer{
+
+margin-top:35px;
+
+padding-top:20px;
+
+border-top:1px solid #eee;
+
+text-align:center;
+
+font-size:13px;
+
+color:#999;
+
+}
+
+@media print{
+
+button,
+label,
+select,
+input{
+
+display:none;
+
+}
+
+.footer{
+
+border:none;
+
+}
+
+body{
+
+background:white;
+
+box-sizing:border-box;
+
+}
+
+.container{
+
+box-shadow:none;
+
+}
+
+.footer{
+
+margin-top:25px;
+
+padding-bottom:15px;
+
+text-align:center;
+
+font-size:13px;
+
+color:#999;
+
+}
+
+}
+
+@media (max-width:768px){
+
+body{
+  padding:10px;
+}
+
+.container{
+  padding:16px;
+  border-radius:16px;
+}
+
+h1{
+  font-size:24px;
+}
+
+.statBox{
+  grid-template-columns:1fr;
+}
+
+.statNumber{
+  font-size:20px;
+}
+
+.headerWrap{
+justify-content:center;
+align-items:center;
+}
+
+.logo{
+width:52px;
+height:52px;
+}
+
+h1{
+font-size:32px;
+margin-bottom:4px;
+}
+
+.subLab{
+font-size:16px;
+}
+
+.subtitle{
+font-size:15px;
+line-height:1.5;
+}
+
+.badge{
+font-size:14px;
+padding:10px 16px;
+}
+
+label{
+font-size:15px;
+}
+
+input,
+select{
+font-size:16px;
+}
+
+button{
+font-size:16px;
+font-weight:700;
+padding:16px;
+}
+
+}
+
+.reminderCard{
+
+display:none;
+
+max-width:800px;
+
+margin:30px auto;
+
+background:white;
+
+padding:60px;
+
+border-radius:20px;
+
+box-shadow:0 8px 30px rgba(0,0,0,.08);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.reminderCard::before{
+
+content:"FOR INTERNAL ACADEMIC USE";
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%)
+rotate(-35deg);
+
+font-size:70px;
+
+font-weight:800;
+
+color:rgba(0,0,0,.04);
+
+white-space:nowrap;
+
+pointer-events:none;
+
+z-index:0;
+
+}
+
+.cardHeader{
+
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+.cardTitle{
+
+font-size:28px;
+
+font-weight:800;
+
+color:#1e3a8a;
+
+}
+
+.cardSub{
+
+font-size:14px;
+
+color:#666;
+
+margin-top:4px;
+
+}
+
+.metaMK{
+
+background:#eef4ff;
+
+padding:16px;
+
+border-radius:14px;
+
+margin-bottom:20px;
+
+z-index:1;
+
+}
+
+.metaLabel{
+
+font-size:12px;
+
+color:#666;
+
+text-transform:uppercase;
+
+}
+
+.metaValue{
+
+font-size:22px;
+
+font-weight:700;
+
+margin-top:4px;
+
+}
+
+.summaryGrid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:12px;
+
+margin-top:20px;
+
+z-index:1;
+
+}
+
+.summaryItem{
+
+background:#f8fafc;
+
+padding:16px;
+
+border-radius:14px;
+
+text-align:center;
+
+}
+
+.summaryNum{
+
+font-size:28px;
+
+font-weight:800;
+
+margin-top:6px;
+
+}
+
+.invalidBox{
+
+margin-top:25px;
+
+padding:20px;
+
+background:#fff5f5;
+
+border-radius:16px;
+
+border:1px solid #fecaca;
+
+z-index:1;
+
+}
+
+.invalidId{
+
+padding:10px;
+
+margin-bottom:8px;
+
+background:white;
+
+border-radius:10px;
+
+}
+
+.cardFooter{
+
+margin-top:25px;
+
+text-align:center;
+
+font-size:12px;
+
+color:#777;
+
+z-index:1;
+
+}
+
+@media(max-width:600px){
+
+.summaryGrid{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+html,
+body{
+  overflow-x:hidden;
+  max-width:100%;
+}
+
+.container,
+.card,
+.reminderCard,
+.summaryGrid,
+.statBox{
+  max-width:100%;
+}
+
+</style>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="headerWrap">
+
+<img
+
+class="logo"
+
+src="https://drive.google.com/thumbnail?id=1ZETvlXkg2m1vR8OoMBRoJa8ljFu4iTNO&sz=w1000"
+/>
+
+<div>
+
+<h1>
+
+Academic Assistance Portal
+
+</h1>
+
+<div class="subLab">
+
+Laboratorium FISIP UNIGA
+
+</div>
+
+</div>
+
+</div>
+
+<div class="subtitle">
+Pantau progres asistensi dan validasi seminar secara real-time.
+</div>
+
+<div style="
+display:inline-block;
+padding:8px 14px;
+background:#edf2ff;
+color:#4F7CFF;
+border-radius:999px;
+font-size:13px;
+font-weight:600;
+margin-bottom:20px;
+">
+
+Academic Assistance Portal Beta
+
+</div>
+
+<label>
+Mata Kuliah
+</label>
+
+<select id="mk">
+
+<option value="" selected disabled>
+Pilih Mata Kuliah...
+</option>
+
+<option value="BUMDES">
+Klinik BUMDes
+</option>
+
+<option value="PK1">
+Praktikum Komputer 1
+</option>
+
+</select>
+
+<br>
+
+<label>
+NIM
+</label>
+
+<input
+id="nim"
+type="tel"
+inputmode="numeric"
+placeholder="Masukkan NIM"
+onkeypress="if(event.key==='Enter'){cek();}">
+
+<button onclick="cek()">
+Cek Status
+</button>
+
+<div id="hasil"></div>
+
+</div>
+
+<div id="reminderCard" class="reminderCard"></div>
+
+<script>
+
+let currentStudentName = "";
+let currentMK = "";
+
+function cek(){
+
+let mk=
+document
+.getElementById("mk")
+.value;
+
+let nim=
+document
+.getElementById("nim")
+.value;
+
+if(mk==""){
+
+alert(
+"Silakan pilih mata kuliah."
+);
+
+return;
+
+}
+
+if(nim==""){
+
+alert(
+"Silakan masukkan NIM."
+);
+
+return;
+
+}
+
+document
+.getElementById(
+"hasil"
+)
+.innerHTML=
+
+'<div class="loading">'+
+
+'<div class="spinner"></div>'+
+
+'<b>Mengambil data...</b><br>'+
+
+'<small>Mohon tunggu sebentar</small>'+
+
+'</div>';
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzGJuTMvzMiYo4BaAlx8J7L5e_ybbxy5_OnZnc6XVCzmEfLrVCzASC3NmBi0Yr7YR93/exec";
+
+fetch(
+
+API_URL+
+
+"?mk="+
+
+encodeURIComponent(mk)+
+
+"&nim="+
+
+encodeURIComponent(nim)
+
+)
+
+.then(response=>response.json())
+
+.then(data=>{
+
+show(data);
+
+})
+
+.catch(function(err){
+
+document
+.getElementById(
+"hasil"
+)
+.innerHTML=
+
+"<div class='card'><b>Error:</b><br>"+err+"</div>";
+
+});
+}
+
+function show(data){
+  
+currentStudentName = data.nama;
+currentMK = data.mk;
+
+let html="";
+
+html+='<div class="card">';
+
+html+='<b>Nama</b><br>';
+html+=data.nama;
+html+='<br><br>';
+
+html+='<b>NIM</b><br>';
+html+=data.nim;
+html+='<br><br>';
+
+html+='<b>Supervisor</b><br>';
+html+=data.spv;
+
+html+='</div>';
+
+html+='<div class="statBox">';
+
+html+='<div class="stat">';
+html+='Total Sesi';
+html+='<div class="statNumber">';
+html+=data.totalSesi;
+html+='</div></div>';
+
+html+='<div class="stat">';
+html+='Sudah Valid';
+html+='<div class="statNumber">';
+html+=data.valid;
+html+='</div></div>';
+
+html+='<div class="stat">';
+html+='Belum Valid';
+html+='<div class="statNumber">';
+html+=data.belumValid;
+html+='</div></div>';
+
+html+='<div class="stat">';
+html+='Target';
+html+='<div class="statNumber">';
+html+=data.minimum;
+html+='</div></div>';
+
+html+='</div>';
+
+let persen=
+(data.valid/data.minimum)*100;
+
+if(persen>100){
+
+persen=100;
+
+}
+
+let warna="#ff6868";
+
+if(persen>=100){
+
+warna="#41c96b";
+
+}else if(persen>=50){
+
+warna="#ffb547";
+
+}
+
+html+='<div class="card">';
+
+html+='<b>Progress Menuju Seminar</b>';
+
+html+='<div class="progress">';
+
+html+='<div class="bar" style="background:';
+
+html+=warna;
+
+html+=';width:';
+
+html+=persen;
+
+html+='%;"></div>';
+
+html+='</div>';
+
+html+='<br>';
+
+html+='<center><b>';
+
+html+=data.valid;
+
+html+=' / ';
+
+html+=data.minimum;
+
+html+=' Sesi';
+
+html+='</b></center>';
+
+html+='</div>';
+
+html+='<div class="status">';
+html+=data.status;
+html+='</div>';
+
+let badge="🔴 Baru Memulai";
+
+if(data.valid>=7){
+
+badge="🟢 Siap Seminar";
+
+}else if(data.valid==6){
+
+badge="🟠 Hampir Memenuhi";
+
+}else if(data.valid>=3){
+
+badge="🟡 Dalam Proses";
+
+}
+
+html+='<center>';
+
+html+='<div class="badge">';
+
+html+=badge;
+
+html+='</div>';
+
+html+='</center>';
+
+html+='<center>';
+
+html+='<button class="printBtn" onclick="generateCard()">';
+html+='🖼 Generate Summary Card';
+html+='</button>';
+
+html+='</center>';
+html+='<div class="history">';
+
+html+='<h3>Riwayat Asistensi</h3>';
+
+data.riwayat.forEach(function(x){
+
+if(x.reported){
+
+html+='<div class="item ok">';
+
+html+="✅ <b>";
+html+=x.booking;
+html+="</b><br>";
+
+html+="Dilaporkan : ";
+html+=x.timestamp;
+
+html+="</div>";
+
+}else{
+
+html+='<div class="item no">';
+
+html+="❌ <b>";
+html+=x.booking;
+html+="</b><br>";
+
+html+="Belum ada laporan SPV";
+
+html+="</div>";
+
+}
+
+});
+
+html+='</div>';
+
+document
+.getElementById(
+"hasil"
+)
+.innerHTML=
+html;
+
+let card='';
+
+card+='<div class="cardHeader">';
+
+card+='<div class="cardTitle">';
+card+='ACADEMIC ASSISTANCE SUMMARY CARD';
+card+='</div>';
+
+card+='<div class="cardSub">';
+card+='Laboratorium FISIP UNIGA';
+card+='</div>';
+
+card+='</div>';
+
+card+='<div class="metaMK">';
+
+card+='<div class="metaLabel">';
+card+='Mata Kuliah';
+card+='</div>';
+
+card+='<div class="metaValue">';
+card+=data.mk;
+card+='</div>';
+
+card+='</div>';
+
+card+='<b>Nama Mahasiswa</b><br>';
+card+=data.nama;
+
+card+='<br><br>';
+
+card+='<b>NIM</b><br>';
+card+=data.nim;
+
+card+='<br><br>';
+
+card+='<b>Supervisor</b><br>';
+card+=data.spv;
+
+card+='<div class="summaryGrid">';
+
+card+='<div class="summaryItem">';
+card+='Total Sesi';
+card+='<div class="summaryNum">';
+card+=data.totalSesi;
+card+='</div></div>';
+
+card+='<div class="summaryItem">';
+card+='Valid';
+card+='<div class="summaryNum">';
+card+=data.valid;
+card+='</div></div>';
+
+card+='<div class="summaryItem">';
+card+='Belum Valid';
+card+='<div class="summaryNum">';
+card+=data.belumValid;
+card+='</div></div>';
+
+card+='<div class="summaryItem">';
+card+='Target';
+card+='<div class="summaryNum">';
+card+=data.minimum;
+card+='</div></div>';
+
+card+='</div>';
+
+card+='<div class="invalidBox">';
+
+card+='<b>';
+card+='Booking ID Belum Tervalidasi';
+card+='</b><br><br>';
+
+if(data.belumValidIds.length===0){
+
+card+='🟢 Semua sesi telah tervalidasi';
+
+}else{
+
+data.belumValidIds.forEach(function(id){
+
+card+='<div class="invalidId">';
+card+='❌ ';
+card+=id;
+card+='</div>';
+
+});
+
+}
+
+card+='</div>';
+
+card+='<div class="cardFooter">';
+
+card+='Tanggal Cetak: ';
+
+card+=data.printDate;
+
+card+=' • ';
+
+card+=data.printTime;
+
+card+=' WIB';
+
+card+='</div>';
+
+document
+.getElementById(
+"reminderCard"
+)
+.innerHTML=
+card;
+
+console.log(card);
+
+}
+
+function generateCard(){
+
+const card =
+document.getElementById(
+"reminderCard"
+);
+
+card.style.display="block";
+
+html2canvas(card,{
+
+scale:2,
+
+backgroundColor:"#ffffff"
+
+}).then(function(canvas){
+
+let ctx = canvas.getContext("2d");
+
+ctx.save();
+
+ctx.translate(
+canvas.width/2,
+canvas.height/2
+);
+
+ctx.rotate(-35*Math.PI/180);
+
+ctx.font="bold 220px Arial";
+
+ctx.fillStyle="red";
+
+ctx.textAlign="center";
+
+ctx.fillText(
+"WATERMARK TEST",
+0,
+0
+);
+
+ctx.restore();
+
+let link=
+document.createElement("a");
+
+let now=
+new Date();
+
+link.download=
+currentStudentName+" - "+currentMK+".png";
+
+link.href=
+canvas.toDataURL("image/png");
+
+link.click();
+
+card.style.display="none";
+
+});
+
+}
+
+</script>
+
+</body>
+
+<div class="footer">
+
+Academic Assistance Portal
+
+<br>
+
+Laboratorium FISIP UNIGA
+
+<br><br>
+
+Built with Google Apps Script
+
+<br>
+
+© 2026
+
+</div>
+
+</html>
